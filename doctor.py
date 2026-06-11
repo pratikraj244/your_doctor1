@@ -7,39 +7,25 @@ from sklearn.model_selection import train_test_split
 from streamlit_extras.metric_cards import style_metric_cards
 import plotly.graph_objects as go
 import streamlit.components.v1 as components
+
+
+if "sidebar_state" not in st.session_state:
+    st.session_state.sidebar_state = "expanded"
+    st.session_state.needs_rerun = False
+
+# Handle the forced rerun
+if st.session_state.needs_rerun:
+    # Toggle to opposite state first
+    opposite = "collapsed" if st.session_state.sidebar_state == "expanded" else "expanded"
+    st.set_page_config(initial_sidebar_state=opposite)
+    st.session_state.needs_rerun = False
+    st.rerun()
+
+# Set the actual desired state
 st.set_page_config(
-    page_title="Your doctor",
-    layout="wide"
-)
-st.markdown(
-    """
-    <style>
-    /* Force toggle button to stay on top and be clickable */
-    button[kind="header"] {
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: 999999 !important;
-        position: fixed !important;
-        background: rgba(0,0,0,0.5) !important;
-        border-radius: 50% !important;
-        padding: 8px !important;
-        margin: 10px !important;
-    }
-    
-    /* Prevent sidebar container from hiding the button */
-    section[data-testid="stSidebar"] {
-        z-index: 100 !important;
-    }
-    
-    /* Make collapsed sidebar indicator more visible */
-    .st-emotion-cache-1f3w014 {
-        background-color: rgba(60, 220, 84, 0.2);
-        border-radius: 50%;
-        padding: 8px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
+    page_title="Beyond90",
+    layout="wide",
+    initial_sidebar_state=st.session_state.sidebar_state
 )
 with st.sidebar:
   selected = option_menu(
