@@ -426,6 +426,7 @@ if selected == "Chat":
     data3 = data2.drop(columns=["Patient's Vital Status","Overall Survival Status"])
     x = data3.iloc[:,:-1]
     y = data3["10 year mortality"]
+    x
     """x1 = data2.drop(columns=["Overall Survival (Months)","Patient's Vital Status","Overall Survival Status"])
     y1 = data2["Overall Survival (Months)"]
 
