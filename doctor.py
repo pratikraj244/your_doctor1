@@ -419,7 +419,7 @@ if selected == "Chat":
     data1 = data.copy()
     l = preprocessing.LabelEncoder()
     for i in data1.columns: # iterate through each columns, if datatype of the column is object datatype only then it will transform the data
-       if data1[i].dtype == "object":
+       if data1[i].dtype == "string":
          data1[i] = l.fit_transform(data1[i])
     l = data1.drop(columns=["Patient ID","Sex"])
     data2 = l[(l["Patient's Vital Status"] != 0) & (l["Patient's Vital Status"] != 1)]
