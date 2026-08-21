@@ -412,12 +412,12 @@ if selected == "Chat":
     st.write("- Good 👉 Likely to recover or live long")
     st.write("- Poor 👉 Disease may spread, come back, or reduce life expectancy")
 
-  if ("predict" in t1) or ("prediction" in t1):
+  if ("predict" in t1) or ("prediction" in t1): 
     data = pd.read_csv(d)
     data = data.dropna()
     data["10 year mortality"] = ((data["Overall Survival (Months)"] >= 120) & (data["Patient's Vital Status"] == "Living")).astype(int)
     data1 = data.copy()
-    #data1.info()
+    data1.info()
     l = preprocessing.LabelEncoder()
     for i in data1.columns: # iterate through each columns, if datatype of the column is object datatype only then it will transform the data
        if data1[i].dtype == "string":
