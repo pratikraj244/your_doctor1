@@ -426,7 +426,7 @@ if selected == "Chat":
     data3 = data2.drop(columns=["Patient's Vital Status","Overall Survival Status"])
     x = data3.iloc[:,:-1]
     y = data3["10 year mortality"]
-    x1 = data2.drop(columns=["Overall Survival (Months)","Patient's Vital Status","Overall Survival Status"])
+    """x1 = data2.drop(columns=["Overall Survival (Months)","Patient's Vital Status","Overall Survival Status"])
     y1 = data2["Overall Survival (Months)"]
 
     x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=42)
@@ -477,5 +477,5 @@ if selected == "Chat":
     f1 = px.bar(pd.concat([out1,out2]),x="status",y="10 year survival count",color="status")
     st.subheader("Survival of patients above 10 years.")
     st.plotly_chart(f1,use_container_width=True,height=200)
-    st.write("This is a simple insight that states that 104 patients will survive more than 10 years, and rest 42 patients will die before 10 years, out of 146 sample patient size.")
+    st.write("This is a simple insight that states that 104 patients will survive more than 10 years, and rest 42 patients will die before 10 years, out of 146 sample patient size.")"""
 #st.sidebar.title("Add file")
