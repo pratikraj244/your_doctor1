@@ -417,6 +417,7 @@ if selected == "Chat":
     data = data.dropna()
     data["10 year mortality"] = ((data["Overall Survival (Months)"] >= 120) & (data["Patient's Vital Status"] == "Living")).astype(int)
     data1 = data.copy()
+    data1.info()
     l = preprocessing.LabelEncoder()
     for i in data1.columns: # iterate through each columns, if datatype of the column is object datatype only then it will transform the data
        if data1[i].dtype == "string":
@@ -427,7 +428,7 @@ if selected == "Chat":
     x = data3.iloc[:,:-1]
     y = data3["10 year mortality"]
     l
-    data1.dtypes
+    
     """x1 = data2.drop(columns=["Overall Survival (Months)","Patient's Vital Status","Overall Survival Status"])
     y1 = data2["Overall Survival (Months)"]
 
